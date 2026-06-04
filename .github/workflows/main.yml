@@ -1,0 +1,15 @@
+name: Binance Ping Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "10 10 * * *"   # rulează la fiecare 5 minute
+
+jobs:
+  ping-binance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run curl ping
+        run: |
+          echo "Timp răspuns Binance Futures API:"
+          curl -o /dev/null -s -w "%{time_total}\n" https://fapi.binance.com/fapi/v1/ping
