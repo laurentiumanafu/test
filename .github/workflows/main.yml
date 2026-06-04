@@ -11,5 +11,6 @@ jobs:
     steps:
       - name: Run curl ping
         run: |
+          curl ipinfo.io
           echo "Timp răspuns Binance Futures API:"
           curl -o /dev/null -s -w "%{time_total}\n" https://fapi.binance.com/fapi/v1/ping
